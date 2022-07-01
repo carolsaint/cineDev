@@ -1,18 +1,20 @@
 // importação do express e do .env
 import "dotenv/config"
 import  Express  from "express"
+import cors from'cors'
 const port = process.env.PORTA
 
 const app = Express();
-app.use(Express.json());
 //middleware
+app.use(cors())
+app.use(Express.json());
 app.use((req,res,next)=>{
     next();
 });
 
-import {filmesDB} from './src/infra/filmes-bd.js'
-import {filmes} from './src/controllers/filmes-controller.js'
-filmes(app, filmesDB)
+import {bd} from './infra/bdSQLite-filmes.js'
+import {filmes} from './controllers/filmes-controller.js'
+filmes(app, bd)
 
 app.listen(port,(port)=>{
   console.log("Porta funcionando")

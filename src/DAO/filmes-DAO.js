@@ -1,5 +1,5 @@
 export class FilmeDAO {
-  constructor(filmesBD) {
+  constructor(bd) {
     this.bd = bd;
   }
   listarFilme() {
@@ -27,12 +27,28 @@ export class FilmeDAO {
 
   insereFilme(novoFilme) {
     return new Promise((resolve, reject) => {
-      this.bd.run(`INSERT INTO FILMES ( TITULO, DESCRICAO, GENERO, RATING, DURACAO) VALUES (?,?,?)`,
-        [novoFilme.titulo, novoFilme.descricao, novoFilme.genero, novoFilme.rating, novoFilme.duaracao],
+      this.bd.run(`INSERT INTO FILMES ( TITULO, DESCRICAO, GENERO, RATING, DURACAO) VALUES (?,?,?,?,?)`,
+        [novoFilme.titulo, novoFilme.descricao, novoFilme.genero, novoFilme.rating, novoFilme.duracao],
         (error) => {
           if (error) {
             console.log('reject');
             reject('Filme não pôde ser inserido')
+            console.log(error)
+          } else {
+            console.log('resolve');
+            resolve('Filme inserido com sucesso')
+          }
+        })
+    })
+  }
+  insereFilmeID(novoFilme) {
+    return new Promise((resolve, reject) => {
+      this.bd.run(`INSERT INTO FILMES ( ID, TITULO, DESCRICAO, GENERO, RATING, DURACAO) VALUES (?,?,?,?,?,?)`, novoFilme,
+          (error) => {
+          if (error) {
+            console.log('reject');
+            reject('Filme não pôde ser inserido')
+            console.log(error)
           } else {
             console.log('resolve');
             resolve('Filme inserido com sucesso')
@@ -42,8 +58,8 @@ export class FilmeDAO {
   }
   alterarFilme(FilmeAtualizado) {
     return new Promise((resolve, reject) => {
-      this.bd.run('UPDATE FILME SET TITULO = ?, DESCRICAO = ?, GENERO = ?, RATING = ?, DURACAO = ? WHERE id = ?', FilmeAtualizado, (erro) => {
-        if (erro) reject('Não foi possível atualizar o Filme');
+      this.bd.run('UPDATE FILMES SET TITULO = ?, DESCRICAO = ?, GENERO = ?, RATING = ?, DURACAO = ? WHERE id = ?', FilmeAtualizado, (erro) => {
+        if (erro) reject('Não foi possível atualizar o Filme' ) 
         else resolve('Filme atualizado');
       });
     })

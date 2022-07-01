@@ -1,27 +1,58 @@
-import app from "../app.js";
-import { filmesBD } from "./src/infra/filmes-bd.js";
-import { filmes } from "../models/filmes-model.js";
+import { FilmeDAO }from '../DAO/filmes-DAO.js'
+import { bd} from "../infra/bdSQLite-filmes.js";
+import { Filme } from "../models/filmes-model.js";
 
 export const filmes = (app) => {
+  const FilmesDAO = new FilmeDAO(bd)
   app.get("/filmes", (req, res) => {
-    res.json({ "Esses são todos os filmes catalogados": filmesBD });
+    FilmesDAO.listarFilme()
+    .then((res) => {
+      res.status(200).json({ "Esses são todos os filmes catalogados": res })
+    })
+    .catch((err) => {res.send(err)})
+  });
+  app.get("/filmes/:id", (req, res) => {
+    FilmesDAO.listarFilmesID(req.params.id)
+      .then((res) => {
+        res.status(200).json({ "Filme solicitado": res })
+      })
+      .catch((err) => {
+        res.send(err);
+      });
   });
 
   app.post("/filmes/novoFilme", (req, res) => {
-    try {
       const body = req.body;
       const novoFilme = new Filme(body.titulo, body.descricao, body.genero, body.rating, body.duracao);
-      filmesBD.filmes.push(novoFilme);
-      res.json({ "Filme Adicionado ao Catálogo:": novoFilme });
-    } catch (error) {
-      res.json({ Error: error.message });
-    }
+      console.log(novoFilme) 
+      FilmesDAO.insereFilme(novoFilme)
+       .then((res)=>{
+        res.send(`Filme adicionado com sucesso` );
+       })
+       .catch((err)=>{
+        res.send(err);
+       })
+      
   });
+  app.post("/filmes/novoFilmeID", (req, res) => {
+    const body = req.body;
+    const novoFilme = new Filme(body.titulo, body.descricao, body.genero, body.rating, body.duracao);
+    const parametros = [body.id,novoFilme.titulo, novoFilme.descricao, novoFilme.genero, novoFilme.rating, novoFilme.duracao]
+    FilmesDAO.insereFilmeID(parametros)
+     .then((res)=>{
+      res.send(`Filme adicionado com sucesso` );
+     })
+     .catch((err)=>{
+      res.send(err);
+     })
+    
+});
   app.put("/filmes/:id", (req, res) => {
     const body = req.body;
+    console.log(body)
     const id = req.params.id;
-
-    const filmes = FilmeDAO.listarFilmesID(id);
+    console.log(id)
+    const filmes = FilmesDAO.listarFilmesID(id);
     const dadosFilmeNovo = new Filme(
       body.titulo || filmes.titulo,
       body.descricao || filmes.descricao,
@@ -37,19 +68,20 @@ export const filmes = (app) => {
       dadosFilmeNovo.duracao,
       id,
     ];
-    const FilmeAtual = FilmeDAO.alterarFilme(parametro)
-      .then((result) => {
+    const FilmeAtual = FilmesDAO.alterarFilme(parametro)
+      .then((res) => {
         res.send(FilmeAtual);
       })
-      .catch((error) => {
+      .catch((err) => {
         res.send(err);
       });
   });
+  
 
-  app.delete("/filme/:id", (req, res) => {
-    FilmeDAO.deletarFilme(req.params.id)
-      .then((resultado) => {
-        res.send(`Filme deletado com sucesso`);
+  app.delete("/filmes/:id", (req, res) => {
+    FilmesDAO.deletarFilme(req.params.id)
+      .then((res) => {
+        res.send(`Filme deletado com sucesso` );
       })
       .catch((err) => {
         res.send(err);
