@@ -6,8 +6,8 @@ export const filmes = (app) => {
   const FilmesDAO = new FilmeDAO(bd)
   app.get("/filmes", (req, res) => {
     FilmesDAO.listarFilme()
-    .then((res) => {
-      res.status(200).json({ "Esses são todos os filmes catalogados": res })
+    .then((result) => {
+      res.status(200).json({ "Esses são todos os filmes catalogados": result })
     })
     .catch((err) => {res.send(err)})
   });
