@@ -13,8 +13,8 @@ export const filmes = (app) => {
   });
   app.get("/filmes/:id", (req, res) => {
     FilmesDAO.listarFilmesID(req.params.id)
-      .then((res) => {
-        res.status(200).json({ "Filme solicitado": res })
+      .then((result) => {
+        res.status(200).json({ "Filme solicitado": result })
       })
       .catch((err) => {
         res.send(err);
@@ -26,7 +26,7 @@ export const filmes = (app) => {
       const novoFilme = new Filme(body.titulo, body.descricao, body.genero, body.rating, body.duracao);
       console.log(novoFilme) 
       FilmesDAO.insereFilme(novoFilme)
-       .then((res)=>{
+       .then((result)=>{
         res.send(`Filme adicionado com sucesso` );
        })
        .catch((err)=>{
@@ -39,7 +39,7 @@ export const filmes = (app) => {
     const novoFilme = new Filme(body.titulo, body.descricao, body.genero, body.rating, body.duracao);
     const parametros = [body.id,novoFilme.titulo, novoFilme.descricao, novoFilme.genero, novoFilme.rating, novoFilme.duracao]
     FilmesDAO.insereFilmeID(parametros)
-     .then((res)=>{
+     .then((result)=>{
       res.send(`Filme adicionado com sucesso` );
      })
      .catch((err)=>{
@@ -69,7 +69,7 @@ export const filmes = (app) => {
       id,
     ];
     const FilmeAtual = FilmesDAO.alterarFilme(parametro)
-      .then((res) => {
+      .then((result) => {
         res.send(FilmeAtual);
       })
       .catch((err) => {
@@ -80,7 +80,7 @@ export const filmes = (app) => {
 
   app.delete("/filmes/:id", (req, res) => {
     FilmesDAO.deletarFilme(req.params.id)
-      .then((res) => {
+      .then((result) => {
         res.send(`Filme deletado com sucesso` );
       })
       .catch((err) => {
