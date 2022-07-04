@@ -2,7 +2,7 @@
 import "dotenv/config"
 import  Express  from "express"
 import cors from'cors'
-const port = process.env.PORTA
+const port = process.env.PORTA || 3000
 
 const app = Express();
 //middleware
