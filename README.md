@@ -11,14 +11,14 @@ Em CineDev procuramos disponibilizar a melhor seleção de filmes e séries com 
 
 ***
 
-### Tecnologias usadas:
+### Tecnologias usadas: 💻
 - NodeJs
 - Insomnia  
 - JavaScript
 - SQLite
 - Metodologias Ageis
 
-### Dependências de desenvolvimento: :computer:
+### Dependências de desenvolvimento: 📋
 Dependências necessárias para o ambiente de desenvolvimento
 
     devDependencies: {
@@ -32,15 +32,18 @@ Dependências necessárias para o ambiente de desenvolvimento
     "supertest": "^6.2.3" 
     }
 
-### Time:
+### Documentação: 📖
+- [Arquitetura REST](https://pt.wikipedia.org/wiki/REST)
+- [SQLite](https://github.com/TryGhost/node-sqlite3/wiki/API#statement)
+- [NPM Docs](https://docs.npmjs.com/)
+
+
+
+***
+### Time: 🧑‍🤝‍🧑
 
 - ***Calina Fischer*** (Colaboradora)
 - ***Carolina Santos Marcello*** (Co-Facilitadora)
 - ***Hellen Costa*** (Colaboradora)
 - ***Jessica Cintra***(Gestora de Conhecimento)
 - ***Nathali Motoka*** (Gestora de Gente)
-
-### Documentação:
-- [Arquitetura REST](https://pt.wikipedia.org/wiki/REST)
-- [SQLite](https://github.com/TryGhost/node-sqlite3/wiki/API#statement)
-- [NPM Docs](https://docs.npmjs.com/)
