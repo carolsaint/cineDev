@@ -1,13 +1,13 @@
 import sqlite3 from 'sqlite3';
-const bd = new sqlite3.Database('./src/infra/series.db');
+const bdS = new sqlite3.Database('./src/infra/series.db');
 
 
 //Processamento de sinal
 process.on('SIGINT', () =>
-    bd.close(() => {
+    bdS.close(() => {
         console.log('BD encerrado!');
         process.exit(0);
     })
 );
 
-export {bd};
+export {bdS};

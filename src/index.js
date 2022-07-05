@@ -16,7 +16,7 @@ import {bd} from './infra/bdSQLite-filmes.js'
 import {filmes} from './controllers/filmes-controller.js'
 filmes(app, bd)
 
-import {bd} from './infra/bdSQLite-series.js'
+import {bdS} from './infra/bdSQLite-series.js'
 import {series} from './controllers/series-controller.js' 
 series(app, bd)
 
@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
   res.send("rota principal")
 })
 
-app.listen(3333, ()=> {
+app.listen(3300, ()=> {
   console.log('rodando')
 })
 

@@ -1,6 +1,6 @@
 let id = 0;
-export class SERIES {
-    constructor(title, description, genre, seasons, img ){
+export class Serie {
+    constructor(title, description, genre, seasons ){
         this.id = id++;
         this.title = title;
         this.description = description;
