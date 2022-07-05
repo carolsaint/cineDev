@@ -34,6 +34,7 @@ export const filmes = (app) => {
        })
       
   });
+
   app.post("/filmes/novoFilmeID", (req, res) => {
     const body = req.body;
     const novoFilme = new Filme(body.titulo, body.descricao, body.genero, body.rating, body.duracao);
@@ -79,7 +80,7 @@ export const filmes = (app) => {
   
 
   app.delete("/filmes/:id", (req, res) => {
-    FilmesDAO.deletarFilme(req.params.id)
+    FilmesDAO.deletarSeries(req.params.id)
       .then((result) => {
         res.send(`Filme deletado com sucesso` );
       })
