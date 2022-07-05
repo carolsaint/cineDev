@@ -18,7 +18,7 @@ Em CineDev procuramos disponibilizar a melhor seleção de filmes e séries com 
 - SQLite
 - Metodologias Ageis
 
-### Dependências de desenvolvimento:
+### Dependências de desenvolvimento: :computer:
 Dependências necessárias para o ambiente de desenvolvimento
 
     devDependencies: {
