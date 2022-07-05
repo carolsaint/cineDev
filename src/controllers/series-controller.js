@@ -1,4 +1,7 @@
-import {series} from '../models/series-model'
+import {series} from '../models/series-model';
+import {bd} from "../infra/bdSQLite-series.js";
+import {seriesDAO }from '../DAO/series-DAO.js'
+
 
 export const series = (app)=>{
     //rota para puxar series

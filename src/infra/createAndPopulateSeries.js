@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS "SERIES" (
     "title" VARCHAR(200),
     "description" varchar (500),
     "genre" varchar(64),
-    "seasons" DECIMAL(100),
+    "seasons" DECIMAL(100)
 );`;
     
 const ADD_SERIES_DATA = `INSERT INTO SERIES (id, title, description, genre, seasons) VALUES (1, 'Doctor Who', 'time travelling blue box', 'sci fi', '39')`;

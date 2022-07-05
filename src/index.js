@@ -16,8 +16,9 @@ import {bd} from './infra/bdSQLite-filmes.js'
 import {filmes} from './controllers/filmes-controller.js'
 filmes(app, bd)
 
+import {bd} from './infra/bdSQLite-series.js'
 import {series} from './controllers/series-controller.js' 
-series(app)
+series(app, bd)
 
 // app.listen(port,(port)=>{
 //   console.log("Porta funcionando")
