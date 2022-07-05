@@ -14,7 +14,11 @@ Em CineDev procuramos disponibilizar a melhor seleção de filmes e séries com 
 
 - ***Calina Fischer*** (Colaboradora)
 - ***Carolina Santos Marcello*** (Co-Facilitadora)
-- ***Hellen Costa*** ()
-- ***Jessica Cintra***()
-- ***Nathali Motoka*** ()
+- ***Hellen Costa*** (Colaboradora)
+- ***Jessica Cintra***(Gestora de Conhecimento)
+- ***Nathali Motoka*** (Gestora de Gente)
 
+### Documentação:
+- [Arquitetura REST](https://pt.wikipedia.org/wiki/REST)
+- [SQLite](https://github.com/TryGhost/node-sqlite3/wiki/API#statement)
+- [NPM Docs](https://docs.npmjs.com/)
