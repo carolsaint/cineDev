@@ -10,6 +10,28 @@ Em CineDev procuramos disponibilizar a melhor seleção de filmes e séries com 
 
 
 ***
+
+### Tecnologias usadas:
+- NodeJs
+- Insomnia  
+- JavaScript
+- SQLite
+- Metodologias Ageis
+
+### Dependências de desenvolvimento:
+Dependências necessárias para o ambiente de desenvolvimento
+
+    devDependencies: {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "heroku": "^7.60.2",
+    "jest": "^28.1.2",
+    "nodemon": "^2.0.18",
+    "sqlite3": "^5.0.8",
+    "supertest": "^6.2.3" 
+    }
+
 ### Time:
 
 - ***Calina Fischer*** (Colaboradora)
