@@ -5,7 +5,7 @@
 
 CineDev é uma API REST criada com base em plataformas streaming, iguais as interfaces e funcionalidades de sites como Netflix, AmazonPrime, etc. porém, direcionado especificamente para a comunidade dev.
 
-Em CineDev procuramos disponibilizar a melhor seleção de filmes e séries com temáticas voltadas para o mundo tech.
+No CineDev procuramos disponibilizar a melhor seleção de filmes e séries com temáticas voltadas para o mundo tech.
 
 
 
@@ -17,6 +17,8 @@ Em CineDev procuramos disponibilizar a melhor seleção de filmes e séries com 
 - JavaScript
 - SQLite
 - Metodologias Ageis
+- Arquitetura MVC
+- Principios SRP
 
 ### Dependências de desenvolvimento: 📋
 Dependências necessárias para o ambiente de desenvolvimento
