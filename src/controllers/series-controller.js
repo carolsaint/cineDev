@@ -1,6 +1,6 @@
-import app from ".."
+import {series} from '../models/series-model'
 
-const livros = ()=>{
+export const series = (app)=>{
     //rota para puxar series
     app.get ('/series', (req,res)=>{
         res.send('rota get')
@@ -21,5 +21,5 @@ const livros = ()=>{
     app.delete ('/series', (req,res)=>{
         res.send('rota delete')
     })
-
 }
+
