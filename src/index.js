@@ -16,9 +16,16 @@ import {bd} from './infra/bdSQLite-filmes.js'
 import {filmes} from './controllers/filmes-controller.js'
 filmes(app, bd)
 
-app.listen(port,(port)=>{
-  console.log("Porta funcionando")
+// app.listen(port,(port)=>{
+//   console.log("Porta funcionando")
+// })
+
+app.get('/', (req, res) => {
+  res.send("rota principal")
 })
 
+app.listen(3333, ()=> {
+  console.log('rodando')
+})
 
 export default app
