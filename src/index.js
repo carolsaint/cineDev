@@ -20,16 +20,9 @@ import {bdS} from './infra/bdSQLite-series.js'
 import {series} from './controllers/series-controller.js' 
 series(app, bd)
 
-// app.listen(port,(port)=>{
-//   console.log("Porta funcionando")
-// })
-
-app.get('/', (req, res) => {
-  res.send("rota principal")
+app.listen(port,(port)=>{
+  console.log("Porta funcionando")
 })
 
-app.listen(3300, ()=> {
-  console.log('rodando')
-})
 
 export default app
