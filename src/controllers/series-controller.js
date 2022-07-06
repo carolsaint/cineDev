@@ -46,29 +46,36 @@ export const series = (app, bdS)=>{
         const body = req.body;
         const id = req.params.id;
         console.log(id)
-        const series = SeriesDAO.listarSeriesID(req.params.id);
-        console.log(series, "oi")
+        SeriesDAO.listarSeriesID(req.params.id)
+        .then((result) => {
+            const series = result[0];
+           
+            const serieUpdate = new Serie(
+                body.title || series.title, 
+                body.description || series.description, 
+                body.genre || series.genre, 
+                body.seasons || series.seasons)
+       
+                const param = [
+                serieUpdate.title,
+                serieUpdate.description,
+                serieUpdate.genre,
+                serieUpdate.seasons,
+                series.id
+                ];
         
-        const serieUpdate = new Serie(
-        body.title || series.title, 
-        body.description || series.description, 
-        body.genre || series.genre, 
-        body.seasons || series.seasons)
-        
-        const param = [
-        serieUpdate.title,
-        serieUpdate.description,
-        serieUpdate.genre,
-        serieUpdate.seasons
-        ];
-
-        const serieAtual = SeriesDAO.alterarSeries(param)
-          .then((result) => {
-            res.send(serieAtual);
-          })
-          .catch((err) => {
-            res.send(err);
-          });
+                SeriesDAO.alterarSeries(param)
+                  .then((resultUpdated) => {
+                    console.log(resultUpdated);
+                    res.send('UPDATED?');
+                  })
+                  .catch((err) => {
+                    res.send(err);
+                  });
+        })
+        .catch((err) => {
+          res.send(err);
+        });
     })
 
     //rota para deletar series 

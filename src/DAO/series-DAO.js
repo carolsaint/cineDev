@@ -36,9 +36,10 @@ export class SerieDAO {
     }
 
     alterarSeries(serieUpdate){
+        console.log(serieUpdate)
         return new Promise ((resolve,reject)=>{
-            this.bdS.all(`UPDATE SERIES SET title = ?, description = ?, genre = ?, seasons = ? WHERE id = ${id}` , 
-            [serieUpdate.title, serieUpdate.description, serieUpdate.genre, serieUpdate.seasons],(error)=>{
+            this.bdS.all(`UPDATE SERIES SET title = ?, description = ?, genre = ?, seasons = ? WHERE id = ?` , 
+            serieUpdate,(error)=>{
                 if(error) reject(error)
                 else resolve("UPDATED")
             })
@@ -47,7 +48,7 @@ export class SerieDAO {
 
      deletarSeries(id){
         return new Promise ((resolve,reject)=>{
-            this.  bdS.all(`DELETE FROM SERIES WHERE id = ${id} `, (error)=>{
+            this.bdS.all(`DELETE FROM SERIES WHERE id = ${id} `, (error)=>{
                 if(error) reject(error)
                 else resolve("DELETED")
             })
