@@ -61,7 +61,7 @@ export const animacoes = (app, bdd) => {
                 const data = async () => {
                     try{
                         const animacaoAntiga = await animacoesDAO.listarAnimacoesID(id)
-                        const animacaoAtual = new animacao(body.TITULO || animacaoAntiga[0].titulo, body.DESCRICAO || animacaoAntiga[0].descricao, body.GENERO || animacaoAntiga[0].genero, body.LANCAMENTO || animacaoAntiga[0].lancamento, body.DURACAO || animacaoAntiga[0].duracao);
+                        const animacaoAtual = new animacao(body.TITULO || animacaoAntiga[0].TITULO, body.DESCRICAO || animacaoAntiga[0].DESCRICAO, body.GENERO || animacaoAntiga[0].GENERO, body.LANCAMENTO || animacaoAntiga[0].LANCAMENTO, body.DURACAO || animacaoAntiga[0].DURACAO);
                         const parametro = [animacaoAtual.titulo, animacaoAtual.descricao, animacaoAtual.genero, animacaoAtual.lancamento, animacaoAtual.duracao, id]
                         const animacaoo = await animacoesDAO.alterarAnimacoes(parametro)
                         console.log(animacaoAtual)
