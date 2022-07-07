@@ -20,7 +20,7 @@ import {bdd} from './infra/bdSQLite-animacoes.js'
 import {animacoes} from './controllers/animacoes-controller.js'
 animacoes(app, bdd)
 
-app.listen(port,(port)=>{
+app.listen(3000,(port)=>{
   console.log("Porta funcionando")
 })
 

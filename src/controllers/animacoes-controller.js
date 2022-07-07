@@ -35,8 +35,10 @@ export const animacoes = (app, bdd) => {
 
     //ROTA DE CADASTRAR
     app.post('/animacoes', (req, res) => {
-        body = req.body;
-        const novaAnimacao = new animacao(body.titulo, body.descricao, body.genero, body.lancamento, body.duracao);
+        const body = req.body;
+        const novaAnimacao = new animacao(body.TITULO, body.DESCRICAO, body.GENERO, body.LANCAMENTO, body.DURACAO);
+        const parametros = [body.id,novaAnimacao.titulo, novaAnimacao.descricao, novaAnimacao.genero, novaAnimacao.lancamento, novaAnimacao.duracao]
+        animacoesDAO.inserirAnimacoes(parametros)
         console.log(novaAnimacao)
         const data = async () => {
             try{
@@ -52,16 +54,20 @@ export const animacoes = (app, bdd) => {
 
     //ROTA DE ALTERAR
     app.put('/animacoes/:id', (req, res) => {
-        body = req.body;
-        id = req.params.id;
+        const body = req.body;
+        console.log(body)
+        const id = req.params.id;
+        console.log(id)
                 const data = async () => {
                     try{
                         const animacaoAntiga = await animacoesDAO.listarAnimacoesID(id)
-                        const animacaoAtual = new Animacao (body.titulo || animacaoAntiga[0].titulo, body.descricao || animacaoAntiga[0].descricao, body.genero || animacaoAntiga[0].genero, body.lancamento || animacaoAntiga[0].lancamento, body.duracao || animacaoAntiga[0].duracao);
+                        const animacaoAtual = new animacao(body.TITULO || animacaoAntiga[0].titulo, body.DESCRICAO || animacaoAntiga[0].descricao, body.GENERO || animacaoAntiga[0].genero, body.LANCAMENTO || animacaoAntiga[0].lancamento, body.DURACAO || animacaoAntiga[0].duracao);
                         const parametro = [animacaoAtual.titulo, animacaoAtual.descricao, animacaoAtual.genero, animacaoAtual.lancamento, animacaoAtual.duracao, id]
-                        const animacao = await animacoesDAO.alterarAnimacoes(parametro)
-                        res.status(200).json(animacao)
+                        const animacaoo = await animacoesDAO.alterarAnimacoes(parametro)
+                        console.log(animacaoAtual)
+                        res.status(200).json(animacaoo)
                     }catch(error){
+                        console.log(error)
                         res.status(404).json(error)
                     }
                 }

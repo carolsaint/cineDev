@@ -6,12 +6,12 @@ const criarTabelaAnimacoes = `CREATE TABLE IF NOT EXISTS "ANIMACOES"(
         "TITULO" varchar(200),
         "DESCRICAO" varchar (500),
         "GENERO" varchar(64),
-        "LANÇAMENTO" varchar(100),
+        "LANCAMENTO" varchar(100),
         "DURACAO" integer(50)
     )`;
 
 
-const insereAnimacoes = `INSERT INTO ANIMACOES (ID, TITULO, DESCRICAO, GENERO, LANÇAMENTO, DURAÇÃO)
+const insereAnimacoes = `INSERT INTO ANIMACOES (ID, TITULO, DESCRICAO, GENERO, LANCAMENTO, DURACAO)
     VALUES 
     (1, 'Divertida Mente', 'Com a mudança para uma nova cidade, as emoções de Riley, que tem apenas 11 anos de idade, ficam extremamente agitadas. Uma confusão na sala de controle do seu cérebro deixa a Alegria e a Tristeza de fora, afetando a vida de Riley radicalmente.', 'Infantil/Comédia', '2015', '95'),
     (2, 'Enrolados', 'O bandido mais procurado do reino, Flynn Rider, se esconde em uma torre e acaba prisioneiro de Rapunzel, residente de longa data do local. Dona de cabelos dourados e mágicos com 21 metros de comprimento, ela está trancada há anos e deseja desesperadamente a liberdade', 'Musical/Comédia', '2010', '100'),
@@ -28,7 +28,7 @@ function create() {
 
   function insert() {
     db.run(insereAnimacoes, (error) => {
-      if (error) console.log("Erro ao adicionar animação");
+      if (error) console.log(error);
     });
   }
         

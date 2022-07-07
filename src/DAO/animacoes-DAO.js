@@ -21,9 +21,9 @@ export class animacaoDAO {
     }
 
 
-    inserirAnimacoes(animacao){
+    inserirAnimacoes(novaAnimacao){
         return new Promise ((resolve, reject) => {
-            this.bdd.run(`INSERT INTO ANIMACOES (titulo, descricao,genero, lancamento, duracao) VALUES (?, ?, ?, ?, ?)`, [animacao.titulo, animacao.descricao, animacao.genero, animacao.lancamento, animacao.duracao],
+            this.bdd.run(`INSERT INTO ANIMACOES (titulo, descricao,genero, lancamento, duracao) VALUES (?, ?, ?, ?, ?)`, [novaAnimacao.titulo, novaAnimacao.descricao, novaAnimacao.genero, novaAnimacao.lancamento, novaAnimacao.duracao],
             (error) => {
                 if (error) reject(error)
                 else resolve('Animação Inserida')
@@ -32,9 +32,9 @@ export class animacaoDAO {
     }
 
 
-    alterarAnimacoes(animacaoAtual){
+    alterarAnimacoes(parametro){
         return new Promise ((resolve, reject) => {
-            this.bdd.run(`UPDATE ANIMACOES SET titulo = ?, descricao = ?, genero = ?, lancamento = ?, duracao = ? WHERE id = ?)`, animacaoAtual,
+            this.bdd.run(`UPDATE ANIMACOES SET titulo = ?, descricao = ?, genero = ?, lancamento = ?, duracao = ? WHERE id = ?`, parametro,
             (error) => {
                 if (error) reject(error)
                 else resolve('Animação Alterada')
