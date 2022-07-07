@@ -1,4 +1,4 @@
-export class Animacoes {
+export class animacao {
     constructor(titulo, descricao,lancamento, genero, duracao) {
         this.id = id++;
         this.titulo = titulo;

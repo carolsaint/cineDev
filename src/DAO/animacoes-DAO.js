@@ -45,7 +45,7 @@ export class animacaoDAO {
 
     deletarAnimacoes(id){
         return new Promise ((resolve, reject) => {
-            this.run(`DELETE FROM ANIMACOES WHERE id = ${id}`, (error) => {
+            this.bd.run(`DELETE FROM ANIMACOES WHERE id = ${id}`, (error) => {
                 if (error) reject(error)
                 else resolve('Animação Deletada')
             })

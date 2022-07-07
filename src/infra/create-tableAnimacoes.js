@@ -1,5 +1,5 @@
 import sqlite3 from 'sqlite3';
-const bd = new sqlite3.Database("./animacoes.db");
+const db = new sqlite3.Database("./animacoes.db");
 
 const criarTabelaAnimacoes = `CREATE TABLE IF NOT EXISTS "ANIMACOES"(
         "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -20,19 +20,19 @@ const insereAnimacoes = `INSERT INTO ANIMACOES (ID, TITULO, DESCRICAO, GENERO, L
     (5, 'Frozen', 'Acompanhada por um vendedor de gelo, a jovem e destemida princesa Anna parte em uma jornada por perigosas montanhas de gelo na esperança de encontrar sua irmã, a rainha Elsa, e acabar com a terrível maldição de inverno eterno, que está provocando o congelamento do reino.', 'Musical', '2013', '82')`;
 
 function create() {
-    bd.run(criarTabelaAnimacoes, (error) => {
+    db.run(criarTabelaAnimacoes, (error) => {
       if (error) console.log(error);
     });
   }
 
 
   function insert() {
-    bd.run(insereAnimacoes, (error) => {
+    db.run(insereAnimacoes, (error) => {
       if (error) console.log("Erro ao adicionar animação");
     });
   }
         
-bd.serialize(() => {
+db.serialize(() => {
     create();
     insert();
 })
