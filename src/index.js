@@ -1,8 +1,8 @@
 // importação do express e do .env
-import "dotenv/config"
+// import "dotenv/config"
 import  Express  from "express"
 import cors from'cors'
-const port = process.env.PORTA
+const port = process.env.PORTA||3000
 
 const app = Express();
 //middleware
@@ -20,7 +20,15 @@ import {bdd} from './infra/bdSQLite-animacoes.js'
 import {animacoes} from './controllers/animacoes-controller.js'
 animacoes(app, bdd)
 
-app.listen(3000,(port)=>{
+import {bdA} from './infra/bdSQLite-assinaturas.js'
+import {signatures} from './controllers/assinaturas-controller.js'
+signatures(app, bdA)
+
+import {bdS} from './infra/bdSQLite-series.js'
+import {series} from './controllers/series-controller.js' 
+series(app, bdS)
+
+app.listen(port,(port)=>{
   console.log("Porta funcionando")
 })
 
