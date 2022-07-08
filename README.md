@@ -30,13 +30,13 @@ No CineDev procuramos disponibilizar a melhor seleção de filmes e séries com 
  | **PUT**         | Alterar item por ID    | htttp://localhost:3000/<**entidade**>/<**id**>
  | **DELETE**      | Deletar item por ID    | htttp://localhost:3000/<**entidade**>/<**id**>
 
-
-##Entidades existentes
--Filmes
--Séries
--Animações
--Clientes
--Assinaturas
+***
+### Entidades existentes
+- Filmes 
+- Séries 
+- Animações 
+- Clientes 
+- Assinaturas
 
 
 
