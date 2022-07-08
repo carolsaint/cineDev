@@ -1,5 +1,5 @@
  export class clientes{
-    constructor(id, name, email, password, payment, film, club){
+    constructor(id, name, email, password, payment, club){
         this.id = id;
         this.name = name;
         this.email = email;
@@ -9,3 +9,4 @@
     }
 }
 
+ 

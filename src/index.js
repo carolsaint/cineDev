@@ -2,7 +2,7 @@
 import "dotenv/config"
 import  Express  from "express"
 import cors from'cors'
-const port = process.env.PORTA
+const port = process.env.PORTA || 3000
 
 const app = Express();
 //middleware
@@ -16,22 +16,22 @@ import {bd} from './infra/bdSQLite-filmes.js'
 import {filmes} from './controllers/filmes-controller.js'
 filmes(app, bd);
 
-
+import {bdSQLite} from './infra/bdSQLite-clientes.js'
 import {cliente} from './controllers/clientes-controller.js'
-cliente(app);
+cliente(app, bdSQLite);
 
 
-// app.listen(port,(port)=>{
-//   console.log("Porta funcionando")
+app.listen(port,(port)=>{
+  console.log("Porta funcionando")
+})
+
+// app.get('/', (req, res) => {
+//   res.send("rota principal")
 // })
 
-app.get('/', (req, res) => {
-  res.send("rota principal")
-})
-
-app.listen(3333, ()=> {
-  console.log('rodando')
-})
+// app.listen(3333, ()=> {
+//   console.log('rodando')
+// })
 
 
 export default app
