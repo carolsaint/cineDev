@@ -77,8 +77,9 @@ Dependências necessárias para o ambiente de desenvolvimento
 ***
 ### Time: 🧑‍🤝‍🧑
 
-- ***Calina Fischer*** (Colaboradora)
-- ***Carolina Santos Marcello*** (Co-Facilitadora)
-- ***Hellen Costa*** (Colaboradora)
-- ***Jessica Cintra***(Gestora de Conhecimento)
-- ***Nathali Motoka*** (Gestora de Gente)
+
+- [Calina Fischer](https://github.com/calinafischer)
+- [Carolina Santos Marcello](https://github.com/carolsaint)
+- [Hellen Costa](https://github.com/HellenCSilva)
+- [Jessica Cintra](https://github.com/Jessicacintra-eng)
+- [Nathali Motoka](https://github.com/misakidrummer)
