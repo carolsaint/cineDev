@@ -11,14 +11,34 @@ No CineDev procuramos disponibilizar a melhor seleção de filmes e séries com 
 
 ***
 
-### Tecnologias usadas: 💻
-- NodeJs
-- Insomnia  
-- JavaScript
-- SQLite
-- Metodologias Ageis
-- Arquitetura MVC
-- Principios SRP
+### Como instalar a API: 💻
+1. Clonar repositório 
+		https://github.com/carolsaint/cineDev.git
+2. Instalar os pacotes necessários utilizando o comando
+		npm install
+3. Criar e popular o banco de dados usando o comando
+		npm run database
+4. Iniciar o servidor por meio do comando
+		npm start
+		
+        
+ | Método          | Utilidade              | Rota                    
+ | ----------------| ------------------     | ------------------ | 
+ | **GET**         | Listar todos itens     | htttp://localhost:3000/<**entidade**>
+ | **GET**         | Procurar item por ID   | htttp://localhost:3000/<**entidade**>/<**id**>
+ | **POST**        | Cadastrar item novo    | htttp://localhost:3000/<**entidade**>/**novaSerie**
+ | **PUT**         | Alterar item por ID    | htttp://localhost:3000/<**entidade**>/<**id**>
+ | **DELETE**      | Deletar item por ID    | htttp://localhost:3000/<**entidade**>/<**id**>
+
+
+##Entidades existentes
+-Filmes
+-Séries
+-Animações
+-Clientes
+-Assinaturas
+
+
 
 ### Dependências de desenvolvimento: 📋
 Dependências necessárias para o ambiente de desenvolvimento
@@ -33,6 +53,19 @@ Dependências necessárias para o ambiente de desenvolvimento
     "sqlite3": "^5.0.8",
     "supertest": "^6.2.3" 
     }
+    
+    
+ ***
+
+### Tecnologias usadas: 💻
+- NodeJs
+- Insomnia  
+- JavaScript
+- SQLite
+- Metodologias Ageis
+- Arquitetura MVC
+- Principios SRP
+
 
 ### Documentação: 📖
 - [Arquitetura REST](https://pt.wikipedia.org/wiki/REST)
