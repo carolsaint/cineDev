@@ -16,6 +16,10 @@ import {bd} from './infra/bdSQLite-filmes.js'
 import {filmes} from './controllers/filmes-controller.js'
 filmes(app, bd)
 
+import {bdd} from './infra/bdSQLite-animacoes.js'
+import {animacoes} from './controllers/animacoes-controller.js'
+animacoes(app, bdd)
+
 import {bdA} from './infra/bdSQLite-assinaturas.js'
 import {signatures} from './controllers/assinaturas-controller.js'
 signatures(app, bdA)
