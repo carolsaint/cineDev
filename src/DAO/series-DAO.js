@@ -25,8 +25,9 @@ export class SerieDAO {
     
     cadastrarSeries(Serie){
         return new Promise ((resolve,reject)=>{
-            this.bdS.all(`INSERT INTO SERIES (title, description, genre, seasons)
-            VALUES (?, ?, ?, ?)`, [Serie.title, Serie.description, Serie.genre, Serie.seasons],(error)=>{
+            console.log(Serie)
+            this.bdS.all(`INSERT INTO SERIES (title, description, genre, seasons, urlimg)
+            VALUES (?, ?, ?, ?, ?)`, [Serie.title, Serie.description, Serie.genre, Serie.seasons, Serie.urlimg],(error)=>{
                 if(error) {
                     reject(error)
                     console.log(error)
@@ -38,7 +39,7 @@ export class SerieDAO {
     alterarSeries(serieUpdate){
         console.log(serieUpdate)
         return new Promise ((resolve,reject)=>{
-            this.bdS.all(`UPDATE SERIES SET title = ?, description = ?, genre = ?, seasons = ? WHERE id = ?` , 
+            this.bdS.all(`UPDATE SERIES SET title = ?, description = ?, genre = ?, seasons = ?, urlimg = ? WHERE id = ?` , 
             serieUpdate,(error)=>{
                 if(error) reject(error)
                 else resolve("UPDATED")

@@ -18,6 +18,7 @@ export const series = (app, bdS)=>{
     app.get('/series/:id', (req, res) => {
         SeriesDAO.listarSeriesID(req.params.id)
           .then((result) => {
+            console.log(result)
             res.status(200).json({ "Serie por ID": result })
           })
           .catch((err) => {
@@ -28,7 +29,7 @@ export const series = (app, bdS)=>{
     //rota para cadastrar series
     app.post("/series/novaSerie", (req, res) => {
         const body = req.body;
-        const novaSerie = new Serie(body.title, body.description, body.genre, body.seasons)
+        const novaSerie = new Serie(body.title, body.description, body.genre, body.seasons, body.urlimg)
         console.log(novaSerie);
         SeriesDAO.cadastrarSeries(novaSerie)
          .then((result)=>{
@@ -54,14 +55,17 @@ export const series = (app, bdS)=>{
                 body.title || series.title, 
                 body.description || series.description, 
                 body.genre || series.genre, 
-                body.seasons || series.seasons)
+                body.seasons || series.seasons,
+                body.urlimg || series.urlimg
+                )
        
                 const param = [
                 serieUpdate.title,
                 serieUpdate.description,
                 serieUpdate.genre,
                 serieUpdate.seasons,
-                series.id
+                series.id,
+                serieUpdate.urlimg
                 ];
         
                 SeriesDAO.alterarSeries(param)
